@@ -12,7 +12,7 @@ public class CryptoLib {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        AES256 aes = Config.getInstance().load("clave-ultra-secreta-para-aes-256");
+        AES256 aes = Config.load("clave-ultra-secreta-para-aes-256");
         
         String text = "Mensaje secreto";
         String encryptedText = aes.crypt(text);

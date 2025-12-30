@@ -11,7 +11,7 @@ package com.cipher.aes;
 public class Config {
 
     private static Config instance;
-    private String key;
+    private static String key;
 
     private Config() {
     }
@@ -23,8 +23,8 @@ public class Config {
         return instance;
     }
 
-    public AES256 load(String key) {
-        this.key = key;
-        return new AES256(this.key);
+    public static AES256 load(String key) {
+        Config.key = key;
+        return new AES256(Config.key);
     }
 }
