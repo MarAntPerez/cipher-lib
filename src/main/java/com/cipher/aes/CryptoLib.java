@@ -4,14 +4,15 @@
 
 package com.cipher.aes;
 
+import com.cipher.aes.exception.KeyNotLoadedException;
+
 /**
  *
  * @author Mar
  */
 public class CryptoLib {
 
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
+    public static void main(String[] args) throws KeyNotLoadedException {
         AES256 aes = Config.load("clave-ultra-secreta-para-aes-256");
         
         String text = "Mensaje secreto";

@@ -4,6 +4,8 @@
  */
 package com.cipher.aes;
 
+import com.cipher.aes.exception.KeyNotLoadedException;
+
 /**
  *
  * @author Mar
@@ -12,6 +14,7 @@ public class Config {
 
     private static Config instance;
     private static String key;
+    private static AES256 aesInstance;
 
     private Config() {
     }
@@ -23,8 +26,14 @@ public class Config {
         return instance;
     }
 
-    public static AES256 load(String key) {
-        Config.key = key;
-        return new AES256(Config.key);
+    public static synchronized AES256 load(String key) throws KeyNotLoadedException {
+        if(aesInstance == null){
+            if(key == null || key.isBlank()){
+                throw new KeyNotLoadedException();
+            }
+            Config.key = key;
+            aesInstance = new AES256(Config.key);
+        }
+        return aesInstance;
     }
 }

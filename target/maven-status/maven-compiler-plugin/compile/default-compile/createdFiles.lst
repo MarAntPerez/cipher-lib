@@ -1,3 +1,5 @@
-com\cipher\aes\AES256.class
+com\cipher\aes\exception\KeyNotLoadedException.class
+com\cipher\aes\exception\LoadFailedException.class
 com\cipher\aes\Config.class
 com\cipher\aes\CryptoLib.class
+com\cipher\aes\AES256.class
